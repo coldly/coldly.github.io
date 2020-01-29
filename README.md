@@ -1,2 +1,1 @@
-# coldly.github.io
-zhlang.org
+# zhlang.org
