@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Based on Chinese Mandarin, simple, fast, safe, compiled programming language">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="./resources/favicon.png">
+<link href="./resources/s.css" rel="stylesheet" type="text/css">
+<title>The Zh Programming Language</title>
+<link href="./resources/main.css" rel="stylesheet">
+<script>
+	function showtg() {
+		document.getElementById('tg0').style.display = 'none';
+		document.getElementById('tg1').style.display = 'block';
+		document.getElementById('tg2').style.display = 'block';
+		
+		document.getElementById('tg4').style.display = 'block';
+		return false
+	}
+
+	function set_lang(lang) {
+		document.cookie = 'lang=' + lang + '; expires=Fri, 19 Jun 2020 20:47:11 UTC; path=/' 
+		window.location.reload() 
+	} 
+	</script>
+</head>
+<body>
+<div class="content">
+<div class="menu" style="width:auto !important;">
+<div class="center" style="text-align:center">
+<a href="https://Zhlang.org/"><img src="./resources/Zh-logo.png" style="width:30px;position: relative; top: 5px;"></a>
+<a target="_blank" href="https://github.com/coldly/Zhlang/tree/master/examples">
+Examples</a>
+<a href="https://Zhlang.org/docs">
+Documentation</a>
+<a href="https://Zhlang.org/modules">
+Modules</a>
+<a href="https://vpm.Zhlang.org/">zpm</a>
+<a href="https://Zhlang.org/play">Playground</a>
+<a href="https://Zhlang.org/#faq">
+FAQ</a>
+<a href="https://github.com/coldly/Zhlang/wiki/Backers">Backers</a>
+</div>
+</div>
+<div id="donate">
+<a target="_blank" href="https://www.patreon.com/Zhlang"><img height="35" src="./resources/alipay.png"></a>
+<a style="text-align:center; display:block;" target="_blank" href="https://Zhlang.org"> Donate via AliPay </a>
+</div>
+<div class="br"></div>
+<div id="social">
+<div id="social1">
+<a target="_blank" href="https://twitter.com/Zhlang"><img src="./resources/twitter.png"><span class="social-text">@Zhlang</span></a>
+<a href="https://discord.gg/Zhlang" target="_blank"><img src="./resources/discord.png"><span class="social-text">Discord</span> <span id="git-btn">1.2k</span></a>
+<div style="margin-bottom: 10px">
+<a href="https://github.com/coldly/Zhlang/wiki" target="_blank" style="display:inline"><img src="./resources/chat.png"><span class="social-text">Blog</span></a> /
+<a href="https://forum.Zhlang.org/" target="_blank" style="display:inline"><span class="social-text">Forum</span></a>
+</div>
+<a href="https://www.youtube.com/channel/Zhlang" target="_blank"><img src="./resources/youtube.png" style="position:relative;top:1px"><span class="social-text">YouTube Channel</span></a>
+<a target="_blank" href="https://t.me/Zhlang" id="tg0" onclick="return showtg()"><img src="./resources/telegram.png"><span class="social-text">Telegram</span></a>
+<a target="_blank" href="https://t.me/Zhlang" id="tg1" style="display:none"><img src="./resources/telegram.png"><span class="social-text">Zhlang</span></a>
+<a target="_blank" href="https://t.me/Zhlang" id="tg2" style="display:none"><img src="./resources/telegram.png"><span class="social-text">Zhlang</span></a>
+<a target="_blank" href="https://t.me/Zhlang" id="tg4" style="display:none"><img src="./resources/telegram.png"><span class="social-text">Zhlang</span></a>
+</div>
+<div id="lang-links">
+<select id="select_lang" onchange="var s = document.getElementById(&quot;select_lang&quot;); set_lang(s.options[s.selectedIndex].value);">
+<option value="en"> English</option>
+<option value="en"> English</option>
+<option value="de"> Deutsch</option>
+<option value="es"> Español</option>
+<option value="fr"> Français</option>
+<option value="ru">Русский </option>
+<option value="zh">中文 </option>
+<option value="ja">日本語</option>
+</select>
+</div>
+</div>
+<div style="flex-grow:1" id="main-header">
+<h1> <a href="https://Zhlang.org/" style="color:black">
+The Zh Programming Language</a> </h1>
+<div style="font-size:18px; text-align:center; position: relative; top:-10px; font-weight:300">
+Based on Chinese Mandarin, simple, fast, safe, compiled language for developing maintainable software
+<a target="_blank" href="https://github.com/coldly/zhlang" style="font-size:16px;     display: block; margin-top: 17px;"><img style="width:30px; position: relative; top:10px" src="./resources/github.png"> github.com/coldly/zhlang<span id="git-btn"><svg style="position: relative; top: 3px;" viewBox="0 0 14 16" version="1.1" width="12" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>5k</span></a>
+</div>
+<div id="install">
+Install Zh from source in 0.5 seconds
+<pre>wget Zhlang.org/z.c &amp;&amp; gcc -o z z.c</pre>
+</div>
+</div>
+<div id="sub-form">
+<form method="POST" action="https://Zhlang.org/subscribe">
+<div>
+</div>
+&nbsp;
+<input type="text" name="email" class="txt-subscribe" placeholder="Enter your email to sub to dev updates" style="visibility:hidden; font-size:84%">
+<input type="submit" value="Subscribe" style="visibility:hidden">
+</form>
+</div>
+<style>
+.software{
+	margin-top:30px;
+}
+.note {
+	font-size: 80%;
+}
+</style>
+<script>
+
+
+function isMob() {
+	return typeof( window.orientation ) !== "undefined" || 
+	navigator.userAgent.indexOf('IEMobile') !== -1;
+
+}
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+
+
+})
+
+var ex_id = 1; 
+const nr_exs = 5; 
+
+function prev() {
+ex_id--; 
+if (ex_id < 1) ex_id = nr_exs; 
+update_ex()
+} 
+
+function next() {
+
+ex_id++; 
+if (ex_id > nr_exs) ex_id = 1; 
+update_ex()
+}
+
+function update_ex() { 
+var elems = document.querySelectorAll('.hello_devs');
+    for (var index = 0 ; index < elems.length; index++) {
+
+        elems[index].style.display = 'none'; 
+    } 
+document.getElementById('ex' + ex_id).style.display = 'table-cell'; 
+if (ex_id <= 3) {
+document.getElementById('ex' + ex_id).style.fontSize = '100%';  
+} 
+else { 
+document.getElementById('ex' + ex_id).style.fontSize = '80%'; 
+} 
+
+
+var select = document.getElementById("select") ;
+select.value = ex_id; 
+ 
+getAjax('/next') 
+
+ 
+} 
+
+function change_ex() {
+var select = document.getElementById("select") ;
+ex_id = select.value - 1;
+
+next(); 
+ 
+} 
+
+function getAjax(url) {
+	    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+		    xhr.open('GET', url);
+								    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+									    xhr.send();
+										    return xhr;
+} 
+
+function size_note() {
+alert(` 
+Of course, it's not a very fair comparison. All these languages have a lot more features and support more platforms.
+
+However, Z's numbers are unlikely to become more than 10 MB / 1 second.
+
+
+
+`) 
+} 
+
+
+
+function comp_note() {
+	alert(`Direct machine code generation is at a very early stage. Right now only x64/Mach-O platform is supported.
+
+This means that for now you'll have to use compilation to C. By the end of this year x64 generation should be stable enough.
+`)
+}
+</script>
+<div class="sep" style="padding:0"></div>
+<div id="lang-links" style="width:100px">
+</div>
+<div id="downloads" style="margin-top:20px; ">
+<div style="font-weight:300">Download a prebuilt Zh package</div>
+<div class="z-link">
+<a href="https://github.com/coldly/Zhlang/releases/latest/download/Zh_linux.zip">Linux</a>
+<div>1.1 MB</div>
+</div>
+<div class="z-link">
+<a href="https://github.com/coldly/Zhlang/releases/latest/download/Zh_macos.zip">macOS</a>
+<div>1.2 MB</div>
+</div>
+<div class="z-link">
+<a href="https://github.com/coldly/Zhlang/releases/latest/download/Zh_windows.zip">Windows</a>
+<div>1.4 MB</div>
+</div>
+<div style="margin-top:20px">
+<a href="https://github.com/coldly/Zhlang#installing-Zh-from-source">
+Or install Zh from source</a>
+<div style="font-size:80%; font-weight: 300">
+this will take a couple of seconds
+</div>
+<div>
+<img src="./resources/linux.png" width="31" title="Linux">
+<img src="./resources/mac.png" width="40" title="macOS">
+<img src="./resources/win.png" width="36" title="Windows">
+<img src="./resources/freebsd.png" width="36" title="FreeBSD, OpenBSD, NetBSD, DragonflyBSD">
+<img src="./resources/solaris.png" width="36" title="Solaris">
+</div>
+</div>
+<div style="margin-top: 30px; font-weight: 300">
+</div>
+</div>
+<div id="changelog">
+<a target="_blank" href="https://github.com/coldly/Zhlang/blob/master/CHANGELOG.md">Zh 0.1.24 Changelog</a>
+<br><br>
+<a target="_blank" href="https://fast.Zhlang.org/">Is Zh still fast?</a>
+</div>
+<div class="sep" style="padding:0"></div>
+<div id="editors">
+<div class="editor">
+<a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=0x9ef.vscode-Zhlang&amp;ssr=false"><img src="./resources/vscode.png" width="25"> <br>Zh for VS Code </a>
+</div>
+<div class="editor">
+<a target="_blank" href="https://github.com/coldly/Zh-vim"><img src="./resources/vim.png" width="25"> <br>Zh for Vim </a>
+</div>
+<div class="editor">
+<a target="_blank" href="https://github.com/coldly/Zhe"><img src="./resources/favicon.png" width="25"> <br>Zhe Editor</a>
+</div>
+</div>
+<div id="home-examples">
+<div class="row" style="margin-top:30px">
+<div class="next" style="text-align:right"> <img onclick="prev()" src="./resources/left.png" width="30"> &nbsp;</div>
+<pre class="hello_devs" id="ex1"><key>主函数() {
+	领域 = [<str>'游戏'</str>, <str>'网页'</str>, <str>'工具'</str>, <str>'科学计算'</str>, <str>'系统'</str>, <str>'嵌入式'</str>, <str>'驱动'</str>, <str>'图形'</str>, <str>'移动'</str>] 
+	<key>在领域里遍历行业 {
+		输出(<str>'你好,</str>@行业<str>开发者！'</str>)
+	}
+}	</pre>
+<pre class="hello_devs" id="ex2" style="display:none"><key>import</key> os
+
+<comment>// Print file lines that starth with "DEBUG:"</comment>
+<key>fn</key> main() {
+	<comment>// `read_file` returns an optional (`?string`), it must be checked</comment>
+	text := os.read_file(<str>'app.log'</str>) <key>or</key> {
+		println(<str>'failed to read the file'</str>)
+		<key>return</key>
+	}
+	lines := text.split_into_lines()
+	<key>for</key> line <key>in</key> lines {
+		<key>if</key> line.starts_with(<str>'DEBUG:'</str>) {
+			println(line)
+		}
+	}
+}
+</pre>
+<pre class="hello_devs" id="ex3" style="display:none"><key>import</key> time
+<key>import</key> http
+
+<key>fn</key> main() {
+	resp := http.get(<str>'https://Zhlang.org/utc_now'</str>) or {
+		println(<str>'failed to fetch data from the server'</str>)
+		return
+	}
+	t := time.unix(resp.text.int())
+	println(t.format()) <comment>// 2019-08-16 17:48</comment>
+}
+</pre>
+<pre class="hello_devs" id="ex4" style="display:none"><key>import</key> json
+
+<key>struct</key> User {
+	name          string
+	age           int
+<key>mut</key>:
+	is_registered bool
+}
+
+<key>fn</key> main() {
+	s := <str>'[{"name":"Frodo", "age":25}, {"name":"Bobby", "age":10}]'</str>
+	users := json.decode([]User, s) <key>or</key> {
+		eprintln(<str>'Failed to parse json'</str>)
+		<key>return</key>
+	}
+	<key>for</key> user in users {
+		println(<str>'</str>$user.name<str>:</str> $user.age<str>'</str>)
+	}
+	println(<str>''</str>)
+	<key>for</key> i, user in users {
+		println(<str>'</str>$i<str>)</str> $user.name<str>'</str>)
+		if !user.can_register() {
+			println(<str>'Cannot register $user.name, they are too young'</str>)
+			continue
+		}
+		users[i].register() <comment>// `user` is immutable, we have to modify the array</comment>
+	}
+	<comment>// Let's encode users again just for fun</comment>
+	println(<str>''</str>)
+	println(json.encode(users))
+}
+
+<key>fn</key> (u User) can_register() bool {
+        <key>return</key> u.age &gt;= 16
+}
+
+<key>fn</key> (u <key>mut</key> User) register() {
+        u.is_registered = true
+}
+
+
+</pre>
+<pre class="hello_devs" id="ex5" style="display:none">struct Customer {
+	id int
+	name string
+	nr_orders int
+	country string
+}
+
+db := pg.connect(db_name, db_user)
+
+nr_customers := db.select count from Customer
+println('number of all customers: $nr_customers')
+
+<comment>// Zh syntax can be used to build queries</comment>
+uk_customers = db.select from Customer where
+	country == 'ukk' &amp;&amp; nr_orders &gt; 0
+for customer in uk_customers {
+	println('$customer.id - $customer.name')
+}
+
+<comment>// by adding `limit 1` we tell Zh that there will be only one object</comment>
+customer = db.select from Customer where id == 1 limit 1
+println(customer.name)
+
+<comment>// insert a new customer</comment>
+new_customer := Customer{name: 'Bob', nr_orders: 10}
+db.insert(new_customer)
+</pre>
+<pre class="hello_devs" id="ex20" style="display:none">struct Story {
+    title string
+}
+
+<comment>// Fetches top HN stories in 8 coroutines</comment> 
+fn main() {
+    resp := http.get('https://hacker-news.firebaseio.com/v0/topstories.json')?
+    ids := json.decode([]int, resp.body)?
+    mut cursor := 0
+    for _ in 0..8 {
+        go fn() {
+            for  {
+                lock { <comment>// Without this lock the program will not compile</comment> 
+                    if cursor &gt;= ids.len {
+                        break
+                    }
+                    id := ids[cursor]
+                    cursor++
+                }
+                resp := http.get('https://hacker-news.firebaseio.com/v0/item/$id.json')? 
+                story := json.decode(Story, resp.body)?
+                println(story.title)
+            }
+        }()
+    }
+    runtime.wait() <comment>// Waits for all coroutines to finish</comment> 
+} 
+</pre>
+<pre class="hello_devs" id="ex30" style="display:none">import ui  // Native cross-platform ui toolkit (uses Cocoa, win32, GTK+)  
+
+// There are no globals, so we have to use a context struct 
+struct Context {
+    input ui.TextBox // this uses native conrols (NSTextView on macOS, edit HWND on Windows)  
+    names []string   // let's log the names to demonstrate how arrays work  
+}
+
+fn main() {
+    wnd := ui.new_window(ui.WindowCfg{  // V has no default arguments and overloading. 
+        width:  600                     // All stdlib functions with many args use Cfg wrappers.
+        height: 300 
+        title:  'hello world' 
+    }) 
+    mut ctx := Context{
+        input: ui.new_textbox(wnd) 
+        // we don't need to initialize the names array, it's done automatically  
+    }
+    ctx.input.set_placeholder('Enter your name')
+    btn := ui.new_button(wnd, 'Click me', ctx.btn_click)
+    for {
+        ui.wait_events()
+    }
+}
+
+fn (ctx mut Context) btn_click() { 
+    name := ctx.input.text()
+    println('current list of names: $ctx.names')  // &gt;&gt; current list of names: [ "Bob", "Alex" ] 
+    ui.alert('Hello, $name!')
+    if ctx.names.contains(name) {
+        ui.alert('I already greeted you ;)') 
+    } 
+    ctx.names &lt;&lt; name 
+} 
+</pre>
+<pre class="hello_devs" id="ex40" style="display:none">struct User { /* ... */ }
+struct Post { /* ... */ }
+struct DB   { /* ... */ }
+
+struct Repo &lt;T&gt; {
+    db DB
+}
+
+fn new_repo&lt;T&gt;(db DB) Repo {
+    return Repo&lt;T&gt;{db: db}
+}
+
+fn (r Repo) find_by_id(id int) T? { // `?` means the function returns an optional
+    table_name := T.name // in this example getting the name of the type gives us the table name
+    return r.db.query_one&lt;T&gt;('select * from $table_name where id = ?', id)
+}
+
+fn main() {
+    db := new_db()
+    users_repo := new_repo&lt;User&gt;(db)
+    posts_repo := new_repo&lt;Post&gt;(db)
+    user := users_repo.find_by_id(1) or {
+        eprintln('User not found')
+        return
+    }
+    post := posts_repo.find_by_id(1) or {
+        eprintln('Post not found')
+        return
+    }
+} 
+</pre>
+<div class="next" onclick="next()">&nbsp;<img src="./resources/right.png" width="30"></div>
+</div>
+<div class="center" style="text-align:center">
+<select id="select" onchange="change_ex()">
+<option value="1">你好</option>
+<option value="2">Filter log file</option>
+<option value="3">HTTP + time</option>
+<option value="4">JSON encoding/decoding</option>
+<option value="5">Built-in ORM</option>
+</select>
+<br>
+<input type="button" style="margin-top:15px" onclick="window.location=;" value="Run">
+</div>
+</div>
+<div class="sep"></div>
+<div class="center">
+<div class="row">
+<div class="feature first">
+<br>
+<i class="note">
+Zh is an actively developed language at an early stage.
+It will stabilize by the time of the 0.2 release planned for January 2020.
+</i>
+</div>
+</div>
+</div>
+<div class="sep"></div>
+<div class="center">
+<div class="row">
+<div class="feature first">
+<h2>
+Simple language for building maintainable programs</h2>
+<p>
+You can learn the entire language by going through the
+<a target="_blank" href="https://Zhlang.org/docs">documentation</a> in half an hour, and in most cases there's only one way to do something.
+</p><p>
+This results in simple, readable, and maintainable code.
+</p><p>
+Despite being simple, Zh gives a lot of power to the developer. Anything you can do in other languages, you can do in Zh.
+</p></div>
+<div class="feature">
+<h2>
+Safety</h2>
+<li>No null
+</li><li>No global variables
+</li><li>No undefined values
+</li><li>No undefined behavior
+</li><li>No variable shadowing
+</li><li>Bounds checking
+</li><li><a target="_blank" href="https://Zhlang.org/docs#option">Option/Result types</a>
+</li><li> <a target="_blank" href="https://Zhlang.org/docs#generics">Generics</a>
+</li><li><a target="_blank" href="https://Zhlang.org/docs#vars">Immutable variables by default</a>
+</li><li><a target="_blank" href="https://Zhlang.org/docs#recvs">Pure functions by default</a>
+</li><li><a target="_blank" href="https://Zhlang.org/docs#mod">Immutable structs by default</a>
+</li></div>
+</div>
+</div>
+<div class="sep"></div>
+<div class="center">
+<div class="row">
+<div class="feature first">
+<h2>
+Performance</h2>
+<li>As fast as C
+</li><li>C interop without any costs
+</li><li>Minimal amount of allocations
+</li><li>Built-in serialization without runtime reflection
+</li><li>Compiles to native binaries without any dependencies: a simple web server is only 65 KB
+</li></div>
+<div class="feature">
+<h2>
+Fast compilation</h2>
+Zh compiles between ≈100k and 1.2 million lines of code per second per CPU core.
+<span style="font-size:70%">(Intel i5-7500 @ 3.40GHz, SM0256L SSD, no optimization) </span>
+<p>
+Zh compiles itself in 0.15 - 0.6 seconds.</p>
+</div>
+</div>
+</div>
+<div class="sep"></div>
+<div class="center">
+<div class="row">
+<div class="feature first">
+<h2>
+Small and easy to build compiler
+</h2>
+<p>
+The entire language and its standard library are less than 2 MB.
+Zh is written in Zh, and can be built in 0.09 - 1 seconds.
+</p><p>
+For comparison:
+</p>
+<table>
+<tbody><tr><td></td><td>Space required &nbsp;&nbsp;</td><td>Build time</td></tr>
+<tr><td>Go</td><td>525 MB</td><td>1m 33s</td></tr>
+<tr><td>Rust</td><td>30 GB</td><td>45m</td></tr>
+<tr><td>GCC</td><td>8 GB</td><td>50m</td></tr>
+<tr><td>Clang</td><td>90 GB
+<a target="_blank" class="sidenote" href="https://lists.llvm.org/pipermail/llvm-dev/2019-April/132028.html">[0]</a>
+</td><td>25m</td></tr>
+<tr><td>Swift</td><td>70 GB
+<a target="_blank" class="sidenote" href="https://github.com/apple/swift#getting-started">[1]</a>
+</td><td>90m</td></tr>
+<tr><td>Zh</td><td>&lt; 2 MB</td><td>0.09s - 1s</td></tr>
+</tbody></table>
+<p>
+<i class="note">
+Zh has only one dependency: a C compiler. If you are doing development, most
+likely you already have a C compiler installed.
+</i></p><p><i class="note">
+It's a small dependency, and it's not going to be needed once x64 generation is mature enough.</i>
+</p></div>
+<div class="feature">
+<p>
+Building Zh in 0.4 seconds and then using the resulting binary to build itself again:
+</p>
+<video style="display:block; border: 1px solid #dfdfdf" muted="" autoplay="" src="/img/buildZh.mp4"></video>
+</div>
+</div>
+</div>
+
+
+</div></body></html>
